@@ -103,47 +103,84 @@ public class Main {
         System.out.println(E);
         System.out.println(F);
         //5.5
-        int numerator1, denominator1, numerator2, denominator2;
+        int numerator1, denominator1, numerator2, denominator2, numerator3, denominator3;
 
         System.out.println("Введите числитель первой дроби:");
         while (!scanner.hasNextInt()) {
-            System.out.println("Ошибка! Введите целое число для числителя:");
+            System.out.println("Ошибка! Введите корректное число для числителя:");
             scanner.next();
         }
         numerator1 = scanner.nextInt();
 
         System.out.println("Введите знаменатель первой дроби:");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Ошибка! Введите целое число для знаменателя:");
-            scanner.next();
+        while (true) {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ошибка! Введите корректное число для знаменателя:");
+                scanner.next();
+            }
+            denominator1 = scanner.nextInt();
+            if (denominator1 == 0) {
+                System.out.println("Ошибка! Знаменатель не может быть равен нулю. Попробуйте еще раз:");
+            } else {
+                break;
+            }
         }
-        denominator1 = scanner.nextInt();
 
         Fraction f1 = new Fraction(numerator1, denominator1);
 
         System.out.println("Введите числитель второй дроби:");
         while (!scanner.hasNextInt()) {
-            System.out.println("Ошибка! Введите целое число для числителя:");
+            System.out.println("Ошибка! Введите корректное число для числителя:");
             scanner.next();
         }
         numerator2 = scanner.nextInt();
 
         System.out.println("Введите знаменатель второй дроби:");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Ошибка! Введите целое число для знаменателя:");
-            scanner.next();
+        while (true) {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ошибка! Введите корректное число для знаменателя:");
+                scanner.next();
+            }
+            denominator2 = scanner.nextInt();
+            if (denominator2 == 0) {
+                System.out.println("Ошибка! Знаменатель не может быть равен нулю. Попробуйте еще раз:");
+            } else {
+                break;
+            }
         }
-        denominator2 = scanner.nextInt();
 
         Fraction f2 = new Fraction(numerator2, denominator2);
 
+        System.out.println("Введите числитель третей дроби:");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Ошибка! Введите корректное число для числителя:");
+            scanner.next();
+        }
+        numerator3 = scanner.nextInt();
+
+        System.out.println("Введите знаменатель третей дроби:");
+        while (true) {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ошибка! Введите корректное число для знаменателя:");
+                scanner.next();
+            }
+            denominator3 = scanner.nextInt();
+            if (denominator3 == 0) {
+                System.out.println("Ошибка! Знаменатель не может быть равен нулю. Попробуйте еще раз:");
+            } else {
+                break;
+            }
+        }
+
+        Fraction f3 = new Fraction(numerator3, denominator3);
+
         System.out.println("Введены дроби: " + f1 + " и " + f2);
-        System.out.println(f1 + " * " + f2 + " = " + f1.umnojenie(f2));
+        System.out.println(f1 + " * " + f3 + " = " + f1.umnojenie(f3));
         System.out.println(f1 + " + " + f2 + " = " + f1.sum(f2));
-        System.out.println(f1 + " / " + f2 + " = " + f1.del(f2));
+        System.out.println(f1 + " / " + f3 + " = " + f1.del(f3));
         System.out.println(f1 + " - 5 = " + f1.minus(5));
 
-        Fraction result = f1.sum(f2).del(f2).minus(5);
+        Fraction result = f1.sum(f2).del(f3).minus(5);
         System.out.println("Результат выражения f1.sum(f2).del(f2).minus(5): " + result);
         // 5.5
     }
